@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Governorate extends Model
+{
+    protected $fillable = [
+        'name',
+        'places_count',
+        'image',
+    ];
+
+    protected $casts = [
+        'name' => 'array',
+    ];
+
+
+    // Governorate.php
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
+
+    
+    /**
+     * Get the name based on requested locale.
+     */
+   // ارجع الاسم حسب اللغة من النص المخزن
+    public function getLocalizedName($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+
+        $name = json_decode($this->name, true);
+
+        return $name[$locale] ?? $name['en'] ?? '';
+    }
+}

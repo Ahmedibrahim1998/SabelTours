@@ -1,0 +1,13 @@
+{
+  "routes": [
+    "/About",
+    "/Book",
+    "/Category",
+    "/Comment",
+    "/Contact",
+    "/home",
+    "/PlacesDetails",
+    "/Trips",
+    "/TripsDetails"
+  ]
+}
