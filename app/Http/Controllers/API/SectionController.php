@@ -66,6 +66,15 @@ class SectionController extends Controller
                 $data['article'] = $detail ? $detail->getLocalizedContent($locale) : null;
                 $data['images'] = $detail ? $detail->getImages() : [];
                 break;
+
+           case 'Practical_Information':
+                $data['Practical_Information'] = $section->details->map(function ($d) use ($locale) {
+                    return [
+                        'title' => $d->title,
+                        'content' => $d->getLocalizedContent($locale),
+                    ];
+                });
+                break;
         }
 
         return response()->json($data);

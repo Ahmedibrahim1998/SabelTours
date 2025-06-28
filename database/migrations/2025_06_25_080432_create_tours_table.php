@@ -17,7 +17,7 @@ class CreateToursTable extends Migration
             $table->id();
             $table->json('name'); // الاسم متعدد اللغات
             $table->json('description')->nullable(); // وصف تفصيلي متعدد اللغات
-            $table->enum('type', ['nile', 'city', 'natural']); // نوع الرحلة
+            $table->enum('type', ['nile', 'city', 'natural','desert']); // نوع الرحلة
             $table->string('image'); // صورة رئيسية
             $table->json('gallery')->nullable(); // صور إضافية
             $table->timestamps();

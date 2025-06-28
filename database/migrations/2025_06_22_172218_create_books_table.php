@@ -22,6 +22,7 @@ class CreateBooksTable extends Migration
             $table->date('travel_date');
             $table->integer('stay_duration'); // بالأيام
             $table->integer('children_count')->default(0);
+	    $table->integer('number_person')->default(0);
             $table->enum('accommodation_type', ['family', 'single', 'shared']);
             $table->text('accommodation_message')->nullable();
             $table->enum('gender', ['male', 'female']);

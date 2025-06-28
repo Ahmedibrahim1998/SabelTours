@@ -39,6 +39,11 @@ class TourDetail extends Model
         ];
     }
 
+    public function subTour()
+    {
+        return $this->belongsTo(SubTour::class);
+    }
+
     public function comments()
     {
         return $this->hasMany(\App\Models\Comment::class);

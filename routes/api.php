@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Api\AboutUsController;
-use App\Http\Controllers\Api\CommentController;
-use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\API\AboutUsController;
+use App\Http\Controllers\API\CommentController;
+use App\Http\Controllers\API\ContactController;
 use App\Http\Controllers\API\GovernorateController;
-use App\Http\Controllers\Api\PlaceController;
-use App\Http\Controllers\Api\SectionController;
-use App\Http\Controllers\Api\ClientController;
-use App\Http\Controllers\Api\BookController;
-use App\Http\Controllers\Api\TourController;
-use App\Http\Controllers\Api\TripController;
+use App\Http\Controllers\API\PlaceController;
+use App\Http\Controllers\API\SectionController;
+use App\Http\Controllers\API\ClientController;
+use App\Http\Controllers\API\BookController;
+use App\Http\Controllers\API\SubTourController;
+use App\Http\Controllers\API\TourController;
+use App\Http\Controllers\API\TripController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -21,7 +22,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| is assigned the "API" middleware group. Enjoy building your API!
 |
 */
 
@@ -59,6 +60,7 @@ Route::group([
 
     Route::get('tours', [TourController::class, 'index']);
     Route::get('/tours/{id}/details', [TourController::class, 'show']);
+    Route::get('/sub-tours-by-type', [SubTourController::class, 'indexByType']);
 
     // comments
 
@@ -66,4 +68,5 @@ Route::group([
 
     // Book Trip
     Route::post('/trips', [TripController::class, 'store']);
+
 });

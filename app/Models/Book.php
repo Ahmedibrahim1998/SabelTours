@@ -11,7 +11,7 @@ class Book extends Model
 
     protected $fillable = [
        'first_name', 'last_name', 'email', 'phone', 'travel_date',
-       'stay_duration', 'children_count', 'accommodation_type',
+       'stay_duration', 'children_count','number_person', 'accommodation_type',
        'accommodation_message', 'gender', 'message'
     ];
 }

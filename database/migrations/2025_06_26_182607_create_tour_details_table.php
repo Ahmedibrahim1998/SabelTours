@@ -16,6 +16,7 @@ class CreateTourDetailsTable extends Migration
         Schema::create('tour_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tour_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sub_tour_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('image');
             $table->json('description'); // وصف كبير متعدد اللغات
             $table->tinyInteger('rate'); // من 1 إلى 5

@@ -14,12 +14,16 @@ class CommentSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         Comment::truncate();
 
         $clients = Client::all();
         $tourDetails = TourDetail::all();
+
+        if ($clients->isEmpty() || $tourDetails->isEmpty()) {
+            return; // لو مفيش بيانات في clients أو tour_details، يوقف الـ seeder
+        }
 
         $sampleData = [
             [
@@ -47,7 +51,7 @@ class CommentSeeder extends Seeder
 
         foreach ($tourDetails as $index => $detail) {
             $commentData = $sampleData[$index % count($sampleData)];
-            $client = $clients->random(); // اختيار عميل عشوائي
+            $client = $clients->random();
 
             Comment::create(array_merge($commentData, [
                 'tour_detail_id' => $detail->id,

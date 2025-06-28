@@ -10,11 +10,22 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'comment', 'rating', 'image','tour_detail_id'
+        'name',
+        'email',
+        'comment',
+        'rating',
+        'image',
+        'tour_detail_id',
+        'client_id',
     ];
 
     public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function details()
+    {
+        return $this->belongsTo(TourDetail::class);
     }
 }

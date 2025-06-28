@@ -14,7 +14,7 @@ class TourSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['nile', 'city', 'natural'];
+        $types = ['nile', 'city', 'natural','desert'];
 
         for ($i = 1; $i <= 10; $i++) {
             Tour::create([

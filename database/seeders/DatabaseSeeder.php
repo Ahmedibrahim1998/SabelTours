@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([ContactSeeder::class,]);
         $this->call([AboutUsSeeder::class,]);
         $this->call([TourSeeder::class,]);
+        $this->call([SubTourSeeder::class,]);
         $this->call([TourDetailSeeder::class,]);
         $this->call([CommentSeeder::class,]);
     }

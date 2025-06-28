@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('comment');
-            $table->unsignedTinyInteger('rating'); // تقييم من 1 إلى 5 مثلًا
+            $table->unsignedTinyInteger('rating'); // تقييم من 1 إلى 5
             $table->string('image')->nullable();
             $table->foreignId('tour_detail_id')->constrained()->onDelete('cascade');
             $table->foreignId('client_id')->nullable()->constrained()->onDelete('cascade');

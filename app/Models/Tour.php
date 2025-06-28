@@ -34,6 +34,11 @@ class Tour extends Model
         return is_array($this->gallery) ? $this->gallery : json_decode($this->gallery, true);
     }
 
+    public function subTours()
+    {
+        return $this->hasMany(SubTour::class);
+    }
+
     public function details()
     {
         return $this->hasMany(TourDetail::class);
