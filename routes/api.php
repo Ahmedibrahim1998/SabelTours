@@ -69,4 +69,8 @@ Route::group([
     // Book Trip
     Route::post('/trips', [TripController::class, 'store']);
 
+    // Review TourDeatils
+    Route::get('/reviews/{tour_detail_id}', [CommentController::class, 'reviews']);
+
+
 });
