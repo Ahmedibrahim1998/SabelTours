@@ -1,0 +1,22 @@
+<?php
+return [
+    'add_client' => 'Aggiungi Cliente',
+    'edit_client' => 'Modifica Cliente',
+    'clients' => 'Clienti',
+    'name_ar' => 'Nome in arabo',
+    'name_en' => 'Nome in inglese',
+    'name_fr' => 'Nome in francese',
+    'name_it' => 'Nome in italiano',
+    'name_de' => 'Nome in tedesco',
+    'description_ar' => 'Descrizione in arabo',
+    'description_en' => 'Descrizione in inglese',
+    'description_fr' => 'Descrizione in francese',
+    'description_it' => 'Descrizione in italiano',
+    'description_de' => 'Descrizione in tedesco',
+    'date' => 'Data',
+    'image' => 'Immagine',
+    'image_url' => 'Image Url',
+    'submit' => 'Salva',
+    'actions' => 'Azioni',
+    'confirm_delete' => 'Sei sicuro di voler eliminare?',
+];

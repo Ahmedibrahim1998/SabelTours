@@ -24,7 +24,7 @@ class Governorate extends Model
         return $this->hasMany(Place::class);
     }
 
-    
+
     /**
      * Get the name based on requested locale.
      */
@@ -33,8 +33,11 @@ class Governorate extends Model
     {
         $locale = $locale ?? app()->getLocale();
 
-        $name = json_decode($this->name, true);
+        // اجبر تحويلها إلى Array إذا كانت String
+        $name = is_string($this->name) ? json_decode($this->name, true) : $this->name;
 
         return $name[$locale] ?? $name['en'] ?? '';
     }
+
+
 }

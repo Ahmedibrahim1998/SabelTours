@@ -1,0 +1,21 @@
+<?php
+return [
+    'add_client' => 'Kunden hinzufügen',
+    'edit_client' => 'Kunde bearbeiten',
+    'clients' => 'Kunden',
+    'name_ar' => 'Name auf Arabisch',
+    'name_en' => 'Name auf Englisch',
+    'name_fr' => 'Name auf Französisch',
+    'name_it' => 'Name auf Italienisch',
+    'name_de' => 'Name auf Deutsch',
+    'description_ar' => 'Beschreibung auf Arabisch',
+    'description_en' => 'Beschreibung auf Englisch',
+    'description_fr' => 'Beschreibung auf Französisch',
+    'description_it' => 'Beschreibung auf Italienisch',
+    'description_de' => 'Beschreibung auf Deutsch',
+    'date' => 'Datum',
+    'image' => 'Bild',
+    'submit' => 'Speichern',
+    'actions' => 'Aktionen',
+    'confirm_delete' => 'Sind Sie sicher, dass Sie löschen möchten?',
+];
