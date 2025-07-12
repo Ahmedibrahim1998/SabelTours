@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'place_details' => 'Dettagli del luogo',
+    'add' => 'Aggiungi dettagli',
+    'edit' => 'Modifica dettagli',
+    'view' => 'Visualizza dettagli',
+    'place' => 'Luogo',
+    'long_description_ar' => 'Descrizione lunga (Arabo)',
+    'long_description_en' => 'Descrizione lunga (Inglese)',
+    'long_description_fr' => 'Descrizione lunga (Francese)',
+    'long_description_es' => 'Descrizione lunga (Spagnolo)',
+    'long_description_it' => 'Descrizione lunga (Italiano)',
+    'long_description_de' => 'Descrizione lunga (Tedesco)',
+    'images' => 'Immagini',
+    'submit' => 'Salva',
+    'update' => 'Aggiorna',
+    'select_place' => 'Seleziona luogo',
+    'actions' => 'Azioni',
+    'confirm_delete' => 'Sei sicuro di voler eliminare?',
+    'created_successfully' => 'Creato con successo.',
+    'updated_successfully' => 'Aggiornato con successo.',
+    'deleted_successfully' => 'Eliminato con successo.',
+    'select_governorate' => 'Seleziona Governatorato',
+];

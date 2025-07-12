@@ -27,6 +27,8 @@ Route::group(
     Route::group(['namespace' => 'Admin'], function () {
 
         Route::resource('governorates', GovernorateController::class);
+        Route::resource('places', PlaceController::class);
+        Route::resource('place-details', PlaceDetailController::class);
 
         Route::resource('clients', ClientController::class);
 

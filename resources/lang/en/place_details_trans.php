@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'place_details' => 'Place Details',
+    'add' => 'Add Details',
+    'edit' => 'Edit Details',
+    'view' => 'View Details',
+    'place' => 'Place',
+    'long_description_ar' => 'Long Description (Arabic)',
+    'long_description_en' => 'Long Description (English)',
+    'long_description_fr' => 'Long Description (French)',
+    'long_description_es' => 'Long Description (Spanish)',
+    'long_description_it' => 'Long Description (Italian)',
+    'long_description_de' => 'Long Description (German)',
+    'images' => 'Images',
+    'submit' => 'Save',
+    'update' => 'Update',
+    'actions' => 'Actions',
+    'select_place' => 'Select Place',
+    'confirm_delete' => 'Are you sure you want to delete?',
+    'created_successfully' => 'Created successfully.',
+    'updated_successfully' => 'Updated successfully.',
+    'deleted_successfully' => 'Deleted successfully.',
+    'select_governorate' => 'Select Governorate',
+];

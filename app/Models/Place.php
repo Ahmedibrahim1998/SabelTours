@@ -25,20 +25,14 @@ class Place extends Model
     public function getLocalizedName($locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        $name = json_decode($this->name, true);
+        $name = is_string($this->name) ? json_decode($this->name, true) : $this->name;
         return $name[$locale] ?? $name['en'] ?? '';
     }
 
     public function getLocalizedShortDescription($locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        $desc = json_decode($this->short_description, true);
+        $desc = is_string($this->short_description) ? json_decode($this->short_description, true) : $this->short_description;
         return $desc[$locale] ?? $desc['en'] ?? '';
     }
-
-    public function detail()
-    {
-        return $this->hasOne(\App\Models\PlaceDetail::class);
-    }
-
 }

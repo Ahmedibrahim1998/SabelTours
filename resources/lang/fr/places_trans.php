@@ -1,0 +1,35 @@
+<?php
+
+return [
+    'places' => 'Lieux',
+    'place' => 'Lieu',
+    'add_place' => 'Ajouter un lieu',
+    'edit_place' => 'Modifier le lieu',
+    'name_ar' => 'Nom (Arabe)',
+    'name_en' => 'Nom (Anglais)',
+    'name_fr' => 'Nom (Français)',
+    'name_es' => 'Nom (Espagnol)',
+    'name_it' => 'Nom (Italien)',
+    'name_de' => 'Nom (Allemand)',
+    'short_description_ar' => 'Description courte (Arabe)',
+    'short_description_en' => 'Description courte (Anglais)',
+    'short_description_fr' => 'Description courte (Français)',
+    'short_description_es' => 'Description courte (Espagnol)',
+    'short_description_it' => 'Description courte (Italien)',
+    'short_description_de' => 'Description courte (Allemand)',
+    'governorate' => 'Gouvernorat',
+    'image' => 'Image',
+    'image_url' => 'URL de l\'image',
+    'location' => 'Emplacement',
+    'submit' => 'Enregistrer',
+    'update' => 'Mettre à jour',
+    'actions' => 'Actions',
+    'confirm_delete' => 'Êtes-vous sûr de vouloir supprimer ?',
+    'created_successfully' => 'Créé avec succès.',
+    'updated_successfully' => 'Mis à jour avec succès.',
+    'deleted_successfully' => 'Supprimé avec succès.',
+    'select_governorate' => 'Sélectionner une gouvernorat',
+    'place_details' => 'Détails du lieu',
+
+
+];

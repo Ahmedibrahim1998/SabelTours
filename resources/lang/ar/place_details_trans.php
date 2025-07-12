@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'place_details' => 'تفاصيل المكان',
+    'add' => 'إضافة تفاصيل',
+    'edit' => 'تعديل التفاصيل',
+    'view' => 'عرض التفاصيل',
+    'place' => 'المكان',
+    'long_description_ar' => 'الوصف التفصيلي (عربية)',
+    'long_description_en' => 'الوصف التفصيلي (إنجليزية)',
+    'long_description_fr' => 'الوصف التفصيلي (فرنسية)',
+    'long_description_es' => 'الوصف التفصيلي (إسبانية)',
+    'long_description_it' => 'الوصف التفصيلي (إيطالية)',
+    'long_description_de' => 'الوصف التفصيلي (ألمانية)',
+    'images' => 'الصور',
+    'image_urls' => 'روابط الصور (خارجية)',
+    'image_urls_placeholder' => 'أدخل روابط الصور مفصولة بفاصلة',
+    'submit' => 'حفظ',
+    'update' => 'تحديث',
+    'select_place' => 'اختر المكان',
+    'actions' => 'الإجراءات',
+    'confirm_delete' => 'هل أنت متأكد من الحذف؟',
+    'created_successfully' => 'تم الإنشاء بنجاح.',
+    'updated_successfully' => 'تم التحديث بنجاح.',
+    'deleted_successfully' => 'تم الحذف بنجاح.',
+    'select_governorate' => 'اختر المحافظة',
+];
