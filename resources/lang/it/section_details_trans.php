@@ -1,0 +1,20 @@
+<?php
+return [
+    'section_details' => 'Dettagli della sezione',
+    'add' => 'Aggiungi',
+    'edit' => 'Modifica',
+    'title' => 'Titolo',
+    'content' => 'Contenuto',
+    'content_ar' => 'Contenuto (Arabo)',
+    'content_en' => 'Contenuto (Inglese)',
+    'content_fr' => 'Contenuto (Francese)',
+    'content_es' => 'Contenuto (Spagnolo)',
+    'content_it' => 'Contenuto (Italiano)',
+    'content_de' => 'Contenuto (Tedesco)',
+    'image' => 'Immagine principale',
+    'images' => 'Immagini aggiuntive',
+    'select_section' => 'Seleziona sezione',
+    'submit' => 'Salva',
+    'update' => 'Aggiorna',
+    'confirm_delete' => 'Sei sicuro di voler eliminare?',
+];

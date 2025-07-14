@@ -16,7 +16,6 @@ class CreateSectionDetailsTable extends Migration
         Schema::create('section_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('section_id')->constrained()->onDelete('cascade');
-
             $table->text('title')->nullable(); // مقال أو عنوان
             $table->text('content')->nullable(); // محتوى متعدد اللغات (JSON)
             $table->text('image')->nullable(); // صورة واحدة

@@ -19,20 +19,29 @@ class Section extends Model
     public function getLocalizedName($locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        $name = json_decode($this->name, true);
-        return $name[$locale] ?? $name['en'] ?? '';
+        return $this->name[$locale] ?? $this->name['en'] ?? '';
     }
 
     public function getLocalizedDescription($locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        $desc = json_decode($this->short_description, true);
-        return $desc[$locale] ?? $desc['en'] ?? '';
+        return $this->short_description[$locale] ?? $this->short_description['en'] ?? '';
     }
+
 
     public function details()
     {
         return $this->hasMany(SectionDetail::class);
+    }
+
+    public function getNameAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function getShortDescriptionAttribute($value)
+    {
+        return json_decode($value, true);
     }
 
 }

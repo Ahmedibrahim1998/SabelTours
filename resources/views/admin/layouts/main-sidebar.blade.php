@@ -29,6 +29,22 @@
                     </li>
 
                     <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#sec-menu">
+                            <div class="pull-left">
+                                <i class="fas fa-users"></i>
+                                <span class="right-nav-text">{{ trans('sections_trans.sections') }}</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="sec-menu" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('sections.index') }}">{{ trans('sections_trans.sections') }}</a></li>
+                            <li><a href="{{ route('section-details.index') }}">{{ trans('section_details_trans.section_details') }}</a></li>
+                            <li><a href="{{ route('books.index') }}">{{ trans('books_trans.books') }}</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#client-menu">
                             <div class="pull-left">
                                 <i class="fas fa-users"></i>
@@ -39,6 +55,21 @@
                         </a>
                         <ul id="client-menu" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{ route('clients.index') }}">{{ trans('clients_trans.clients') }}</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#contacts-menu">
+                            <div class="pull-left">
+                                <i class="fas fa-phone"></i>
+                                <span class="right-nav-text">{{ trans('contacts_trans.contacts') }}</span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="contacts-menu" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('contacts.index') }}">{{ trans('contacts_trans.contacts') }}</a></li>
+                            <li><a href="{{ route('about-us.index') }}">{{ trans('about_us_trans.about_us') }}</a></li>
                         </ul>
                     </li>
                 </ul>

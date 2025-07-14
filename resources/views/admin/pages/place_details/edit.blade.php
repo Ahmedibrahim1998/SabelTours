@@ -34,8 +34,6 @@
             @endforeach
         </div>
         {{-- الصور --}}
-
-
         <div class="row">
             <div class="col-md-6">
                 <label>{{ trans('place_details_trans.images') }}</label><br>

@@ -290,14 +290,14 @@ buildings:
   label: Buildings
 business:
   icons:
-    - address-book
+    - address-books
     - address-card
     - archive
     - balance-scale
     - balance-scale-left
     - balance-scale-right
     - birthday-cake
-    - book
+    - books
     - briefcase
     - building
     - bullhorn
@@ -507,7 +507,7 @@ code:
   label: Code
 communication:
   icons:
-    - address-book
+    - address-books
     - address-card
     - american-sign-language-interpreting
     - assistive-listening-systems
@@ -774,8 +774,8 @@ education:
     - award
     - bell
     - bell-slash
-    - book-open
-    - book-reader
+    - books-open
+    - books-reader
     - chalkboard
     - chalkboard-teacher
     - graduation-cap
@@ -884,7 +884,7 @@ finance:
     - balance-scale
     - balance-scale-left
     - balance-scale-right
-    - book
+    - books
     - cash-register
     - chart-line
     - chart-pie
@@ -994,7 +994,7 @@ games:
 gaming-tabletop:
   icons:
     - acquisitions-incorporated
-    - book-dead
+    - books-dead
     - critical-role
     - d-and-d
     - d-and-d-beyond
@@ -1029,7 +1029,7 @@ gender:
   label: Genders
 halloween:
   icons:
-    - book-dead
+    - books-dead
     - broom
     - cat
     - cloud-moon
@@ -1392,7 +1392,7 @@ maps:
     - birthday-cake
     - blind
     - bomb
-    - book
+    - books
     - bookmark
     - briefcase
     - building
@@ -1563,7 +1563,7 @@ medical:
     - biohazard
     - bone
     - bong
-    - book-medical
+    - books-medical
     - brain
     - briefcase-medical
     - burn
@@ -1691,8 +1691,8 @@ objects:
     - birthday-cake
     - blender
     - bomb
-    - book
-    - book-dead
+    - books
+    - books-dead
     - bookmark
     - briefcase
     - broadcast-tower
@@ -1951,7 +1951,7 @@ payments-shopping:
 pharmacy:
   icons:
     - band-aid
-    - book-medical
+    - books-medical
     - cannabis
     - capsules
     - clinic-medical
@@ -2408,7 +2408,7 @@ travel:
 users-people:
   icons:
     - accessible-icon
-    - address-book
+    - address-books
     - address-card
     - baby
     - bed
@@ -2546,7 +2546,7 @@ writing:
   icons:
     - archive
     - blog
-    - book
+    - books
     - bookmark
     - edit
     - envelope

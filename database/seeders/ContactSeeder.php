@@ -34,7 +34,7 @@ class ContactSeeder extends Seeder
                 'name' => 'Mohamed Adel',
                 'email' => 'm.adel@example.com',
                 'phone' => '0101000003',
-                'message' => 'Can I book a private guide for Aswan?'
+                'message' => 'Can I books a private guide for Aswan?'
             ],
             [
                 'name' => 'Lina Hassan',

@@ -18,7 +18,7 @@ class BookController extends Controller
             'travel_date'           => 'required|date',
             'stay_duration'         => 'required|integer|min:1',
             'children_count'        => 'nullable|integer|min:0',
-	    'number_person'          => 'nullable|integer|min:0',
+	        'number_person'         => 'nullable|integer|min:0',
             'accommodation_type'    => 'required|in:family,single,shared',
             'accommodation_message' => 'nullable|string|max:1000',
             'gender'                => 'required|in:male,female',

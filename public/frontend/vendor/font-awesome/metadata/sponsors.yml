@@ -356,7 +356,7 @@ med-apps:
   url: 'http://medapps.com.au'
 medapps:
   icons:
-    - book-medical
+    - books-medical
     - clinic-medical
     - comment-medical
     - crutch

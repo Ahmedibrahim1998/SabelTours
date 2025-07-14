@@ -26,4 +26,5 @@ class SectionDetail extends Model
     {
         return json_decode($this->images, true) ?? [];
     }
+
 }

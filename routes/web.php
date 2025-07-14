@@ -26,17 +26,21 @@ Route::group(
     //==============================================Dashboard==========================================
     Route::group(['namespace' => 'Admin'], function () {
 
+        Route::resource('books', BookController::class)->except(['create','store']);
+
         Route::resource('governorates', GovernorateController::class);
         Route::resource('places', PlaceController::class);
         Route::resource('place-details', PlaceDetailController::class);
 
+        Route::resource('sections', SectionController::class);
+        Route::resource('section-details', SectionDetailController::class);
+
+
+        Route::resource('contacts', ContactController::class)->only(['index', 'show', 'destroy']);
+        Route::resource('about-us', AboutUsController::class)->only(['index', 'edit', 'update']);
         Route::resource('clients', ClientController::class);
 
-        Route::resource('educations', 'EducationController');
 
-        // User And Roles And Permissions
-        Route::resource('users', 'UserController');
-        Route::resource('roles', 'RoleController');
     });
 
 });

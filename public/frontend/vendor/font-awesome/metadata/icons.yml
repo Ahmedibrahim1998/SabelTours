@@ -79,7 +79,7 @@ address-book:
       - contact
       - directory
       - index
-      - little black book
+      - little black books
       - rolodex
   styles:
     - solid
@@ -965,7 +965,7 @@ atlas:
   label: Atlas
   search:
     terms:
-      - book
+      - books
       - directions
       - geography
       - globe
@@ -1615,7 +1615,7 @@ bible:
   label: Bible
   search:
     terms:
-      - book
+      - books
       - catholicism
       - christianity
       - god
@@ -1973,7 +1973,7 @@ book:
   changes:
     - '1'
     - 5.0.0
-  label: book
+  label: books
   search:
     terms:
       - diary
@@ -2039,7 +2039,7 @@ book-open:
       - flyer
       - library
       - notebook
-      - open book
+      - open books
       - pamphlet
       - reading
   styles:
@@ -2055,7 +2055,7 @@ book-reader:
       - flyer
       - library
       - notebook
-      - open book
+      - open books
       - pamphlet
       - reading
   styles:
@@ -11043,7 +11043,7 @@ journal-whills:
   label: Journal of the Whills
   search:
     terms:
-      - book
+      - books
       - force
       - jedi
       - sith
@@ -15121,7 +15121,7 @@ quran:
   label: Quran
   search:
     terms:
-      - book
+      - books
       - islam
       - muslim
       - religion
@@ -19305,7 +19305,7 @@ torah:
   label: Torah
   search:
     terms:
-      - book
+      - books
       - jewish
       - judaism
       - religion
