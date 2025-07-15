@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'tour_details' => 'Tour Details',
+    'add_tour_detail' => 'Add Tour Detail',
+    'edit_tour_detail' => 'Edit Tour Detail',
+    'tour' => 'Main Tour',
+    'sub_tour' => 'Sub Tour',
+    'select_tour' => 'Select Tour',
+    'select_sub_tour' => 'Select Sub Tour',
+    'image' => 'Image',
+    'description_ar' => 'Description (Arabic)',
+    'description_en' => 'Description (English)',
+    'description_fr' => 'Description (French)',
+    'description_es' => 'Description (Spanish)',
+    'description_it' => 'Description (Italian)',
+    'description_de' => 'Description (German)',
+    'rate' => 'Rating',
+    'morning' => 'Morning',
+    'noon' => 'Noon',
+    'evening' => 'Evening',
+    'from_month' => 'From Month',
+    'to_month' => 'To Month',
+    'price' => 'Price',
+    'location' => 'Location',
+    'submit' => 'Submit',
+    'update' => 'Update',
+    'actions' => 'Actions',
+    'confirm_delete' => 'Are you sure you want to delete?',
+    'agenda' => 'Agenda',
+    'description' => 'Description',
+
+];

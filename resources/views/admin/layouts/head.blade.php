@@ -1,7 +1,8 @@
 <!-- Title -->
 <title>@yield("title")</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/css/bootstrap-colorpicker.min.css"
+      rel="stylesheet">
 
 <base href="/" target="_top">
 <!-- Favicon -->
@@ -34,6 +35,14 @@
 <link href="{{env('APP_URL').'public/assets/css/style.css'}}" rel="stylesheet">
 <!--- Style css -->
 @if (App::getLocale() == 'en')
+    <link href="{{env('APP_URL').'public/assets/css/ltr.css'}}" rel="stylesheet">
+@elseif(App::getLocale() == 'fr')
+    <link href="{{env('APP_URL').'public/assets/css/ltr.css'}}" rel="stylesheet">
+@elseif(App::getLocale() == 'it')
+    <link href="{{env('APP_URL').'public/assets/css/ltr.css'}}" rel="stylesheet">
+@elseif(App::getLocale() == 'de')
+    <link href="{{env('APP_URL').'public/assets/css/ltr.css'}}" rel="stylesheet">
+@elseif(App::getLocale() == 'es')
     <link href="{{env('APP_URL').'public/assets/css/ltr.css'}}" rel="stylesheet">
 @else
     <link href="{{env('APP_URL').'public/assets/css/rtl.css'}}" rel="stylesheet">

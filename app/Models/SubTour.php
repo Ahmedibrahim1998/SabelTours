@@ -29,8 +29,11 @@ class SubTour extends Model
     {
         return $this->hasMany(TourPlace::class);
     }
-    
 
+    public function getLocalizedName($locale)
+    {
+        return $this->name[$locale] ?? $this->name['en'] ?? null;
+    }
 
 
 }

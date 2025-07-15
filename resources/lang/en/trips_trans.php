@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'trips'           => 'Reservations',
+    'trip'            => 'Reservation',
+    'edit_trip'       => 'Edit Reservation',
+    'first_name'      => 'First Name',
+    'last_name'       => 'Last Name',
+    'email'           => 'Email',
+    'phone'           => 'Phone',
+    'adults_count'    => 'Number of Adults',
+    'children_count'  => 'Number of Children',
+    'travel_date'     => 'Travel Date',
+    'message'         => 'Additional Message',
+    'gender'          => 'Gender',
+    'male'            => 'Male',
+    'female'          => 'Female',
+    'update'          => 'Update',
+    'back'            => 'Back',
+    'full_name' => 'Full Name',
+    'no_trips_found'  => 'No reservations found.',
+    'actions'         => 'Actions',
+    'show_trip'       => 'Show Reservation',
+    'delete'          => 'Delete',
+    'confirm_delete'  => 'Are you sure you want to delete this reservation?',
+];

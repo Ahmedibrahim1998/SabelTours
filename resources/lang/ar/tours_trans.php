@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'tours' => 'الرحلات',
+    'add_tour' => 'إضافة رحلة',
+    'edit_tour' => 'تعديل رحلة',
+    'tour_details' => 'تفاصيل الرحلة',
+    'name_ar' => 'الاسم بالعربية',
+    'name_en' => 'الاسم بالإنجليزية',
+    'name_fr' => 'الاسم بالفرنسية',
+    'name_es' => 'الاسم بالإسبانية',
+    'name_it' => 'الاسم بالإيطالية',
+    'name_de' => 'الاسم بالألمانية',
+    'description_ar' => 'الوصف بالعربية',
+    'description_en' => 'الوصف بالإنجليزية',
+    'description_fr' => 'الوصف بالفرنسية',
+    'description_es' => 'الوصف بالإسبانية',
+    'description_it' => 'الوصف بالإيطالية',
+    'description_de' => 'الوصف بالألمانية',
+    'type' => 'نوع الرحلة',
+    'select_type' => 'اختر نوع الرحلة',
+    'image' => 'الصورة الرئيسية',
+    'gallery' => 'معرض الصور',
+    'gallery_urls' => 'روابط الصور (مفصولة بفاصلة)',
+    'gallery_urls_placeholder' => 'مثال: https://example.com/img1.jpg, https://example.com/img2.jpg',
+    'separate_urls_with_comma' => 'افصل بين الروابط باستخدام الفاصلة ","',
+    'submit' => 'حفظ',
+    'update' => 'تحديث',
+    'back' => 'رجوع',
+    'actions' => 'الإجراءات',
+    'confirm_delete' => 'هل أنت متأكد من الحذف؟',
+];
+

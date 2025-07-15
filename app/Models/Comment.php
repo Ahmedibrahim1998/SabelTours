@@ -23,9 +23,9 @@ class Comment extends Model
     {
         return $this->belongsTo(Client::class);
     }
-
     public function details()
     {
-        return $this->belongsTo(TourDetail::class);
+        return $this->belongsTo(TourDetail::class, 'tour_detail_id');
     }
+
 }

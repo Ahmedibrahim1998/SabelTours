@@ -36,11 +36,15 @@ Route::group(
         Route::resource('section-details', SectionDetailController::class);
 
 
+        Route::resource('tours', TourController::class);
+        Route::resource('sub-tours', SubTourController::class);
+        Route::resource('tour_details', TourDetailController::class);
+        Route::resource('comments', CommentController::class)->except(['create', 'store','edit','update']);
+        Route::resource('trips', TripController::class)->except(['create','store']);
+
         Route::resource('contacts', ContactController::class)->only(['index', 'show', 'destroy']);
         Route::resource('about-us', AboutUsController::class)->only(['index', 'edit', 'update']);
         Route::resource('clients', ClientController::class);
-
-
     });
 
 });

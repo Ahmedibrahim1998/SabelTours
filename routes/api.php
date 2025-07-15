@@ -63,7 +63,6 @@ Route::group([
     Route::get('/sub-tours-by-type', [SubTourController::class, 'indexByType']);
 
     // comments
-
     Route::post('/comments', [CommentController::class, 'store']);
 
     // Book Trip

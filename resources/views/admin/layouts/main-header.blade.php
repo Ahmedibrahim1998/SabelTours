@@ -4,9 +4,9 @@
 <nav class="admin-header navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <!-- logo -->
     <div class="text-left navbar-brand-wrapper fw-600">
-        <a class="navbar-brand brand-logo" href="{{ url('/dashboard')}}"><img
-                src="{{env('APP_URL').'public/assets/images/images.jpeg'}}" alt="Dr.Saleh Alfuraih"
-                style="height:50px;width:250px;"></a>
+        <a class="navbar-brand brand-logo" href="{{ route('dashboard') }}">
+            <img src="{{ asset('assets/images/images.jpeg') }}" alt="Sable d'Égypte " style="height:50px; width:250px;">
+        </a>
     </div>
     <!-- Top bar left -->
     <ul class="nav navbar-nav mr-auto">
@@ -30,23 +30,38 @@
         <div class="btn-group mb-1">
             <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                @if (App::getLocale() == 'ar')
-                    {{ LaravelLocalization::getCurrentLocaleName() }}
-                    <img src="{{env('APP_URL').'public/assets/images/flags/SA.png'}}" alt="">
-                @else
-                    {{ LaravelLocalization::getCurrentLocaleName() }}
-                    <img src="{{env('APP_URL').'public/assets/images/flags/US.png'}}" alt="">
+                @php
+                    $locale = App::getLocale();
+                    $flags = [
+                        'ar' => 'eg', // علم مصر بدلاً من السعودية
+                        'en' => 'gb', // علم بريطانيا
+                        'fr' => 'fr',
+                        'de' => 'de',
+                        'it' => 'it',
+                        'es' => 'es'
+                    ];
+                @endphp
+                {{ LaravelLocalization::getCurrentLocaleName() }}
+                @if(isset($flags[$locale]))
+                    <img src="https://flagcdn.com/24x18/{{ $flags[$locale] }}.png" alt="{{ $locale }}" width="24" height="18">
                 @endif
             </button>
+
             <div class="dropdown-menu">
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                    <a class="dropdown-item d-flex align-items-center gap-2"
+                       rel="alternate" hreflang="{{ $localeCode }}"
                        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        @if(isset($flags[$localeCode]))
+                            <img src="https://flagcdn.com/24x18/{{ $flags[$localeCode] }}.png" alt="{{ $localeCode }}"
+                                 width="24" height="18" class="me-2 mr-1">
+                        @endif
                         {{ $properties['native'] }}
                     </a>
                 @endforeach
             </div>
         </div>
+
 
         <li class="nav-item fullscreen">
             <a id="btnFullscreen" href="#" class="nav-link"><i class="ti-fullscreen"></i></a>
@@ -54,28 +69,14 @@
         <li class="nav-item dropdown mr-30">
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                aria-haspopup="true" aria-expanded="false">
-{{--                @if(auth()->user()->logo)--}}
-{{--                    <img src="{{ env('APP_URL').'public/attachments/profileImage/'. auth()->user()->logo}}">--}}
-{{--                @else--}}
                     <img src="{{env('APP_URL').'public/assets/images/faces/6.jpg'}}" alt="avatar">
-{{--                @endif--}}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-header">
-                    <div class="media">
-                        <div class="media-body">
-{{--                            <h5 class="mt-0 mb-0">{{auth()->user()->name}}</h5>--}}
-                            <h5 class="mt-0 mb-0">Ahmed</h5>
-{{--                            <span>{{auth()->user()->eamil}}</span>--}}
-                            <span>ahmed@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#"
                    onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
                         class="fa fa-sign-out text-info"></i>Logout</a>
-                <form id="logout-form" action="#" method="POST" style="display: none;">
+                <form id="logout-form" action="{{route('dashboard')}}" style="display: none;">
                     @csrf
                 </form>
             </div>

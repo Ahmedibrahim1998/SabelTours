@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'tour_details' => 'Détails de la visite',
+    'add_tour_detail' => 'Ajouter un détail de visite',
+    'edit_tour_detail' => 'Modifier le détail de la visite',
+    'tour' => 'Visite principale',
+    'sub_tour' => 'Sous-visite',
+    'select_tour' => 'Sélectionner une visite',
+    'select_sub_tour' => 'Sélectionner une sous-visite',
+    'image' => 'Image',
+    'description_ar' => 'Description (Arabe)',
+    'description_en' => 'Description (Anglais)',
+    'description_fr' => 'Description (Français)',
+    'description_es' => 'Description (Espagnol)',
+    'description_it' => 'Description (Italien)',
+    'description_de' => 'Description (Allemand)',
+    'rate' => 'Évaluation',
+    'morning' => 'Matin',
+    'noon' => 'Midi',
+    'evening' => 'Soir',
+    'from_month' => 'De mois',
+    'to_month' => 'À mois',
+    'price' => 'Prix',
+    'location' => 'Emplacement',
+    'submit' => 'Soumettre',
+    'update' => 'Mettre à jour',
+    'actions' => 'Actions',
+    'confirm_delete' => 'Êtes-vous sûr de vouloir supprimer ?',
+    'agenda' => 'Programme',
+    'description' => 'Description',
+
+];

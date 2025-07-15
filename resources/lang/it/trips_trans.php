@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'trips'           => 'Prenotazioni',
+    'trip'            => 'Prenotazione',
+    'edit_trip'       => 'Modifica prenotazione',
+    'first_name'      => 'Nome',
+    'last_name'       => 'Cognome',
+    'email'           => 'Email',
+    'phone'           => 'Telefono',
+    'adults_count'    => 'Numero di adulti',
+    'children_count'  => 'Numero di bambini',
+    'travel_date'     => 'Data del viaggio',
+    'message'         => 'Messaggio aggiuntivo',
+    'gender'          => 'Genere',
+    'male'            => 'Maschio',
+    'female'          => 'Femmina',
+    'update'          => 'Aggiorna',
+    'full_name' => 'Nome completo',
+    'back'            => 'Indietro',
+    'no_trips_found'  => 'Nessuna prenotazione trovata.',
+    'actions'         => 'Azioni',
+    'show_trip'       => 'Mostra prenotazione',
+    'delete'          => 'Elimina',
+    'confirm_delete'  => 'Sei sicuro di voler eliminare questa prenotazione?',
+];

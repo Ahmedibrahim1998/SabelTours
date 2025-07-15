@@ -19,18 +19,18 @@
 
     <!--================================= preloader -->
 
-{{--    <div id="pre-loader">--}}
-{{--        <img src="{{ env('APP_URL') }}/public/images/pre-loader/loader-01.svg" alt="">--}}
-{{--    </div>--}}
+    {{--    <div id="pre-loader">--}}
+    {{--        <img src="{{ env('APP_URL') }}/public/images/pre-loader/loader-01.svg" alt="">--}}
+    {{--    </div>--}}
 
-<!--=================================
+    <!--=================================
 preloader -->
 
-@include('admin.layouts.main-header')
+    @include('admin.layouts.main-header')
 
-@include('admin.layouts.main-sidebar')
+    @include('admin.layouts.main-sidebar')
 
-<!--=================================
+    <!--=================================
  Main content -->
     <!-- main-content -->
     <div class="content-wrapper">
@@ -51,7 +51,7 @@ preloader -->
                 <div class="card card-statistics h-100">
                     <div class="card-body">
                         <div class="clearfix">
-                            <a href="{#">
+                            <a href="{{ route('clients.index') }}">
                                 <div class="float-left">
                                     <span class="text-danger">
                                         <i class="fa fa-users highlight-icon" aria-hidden="true"></i>
@@ -59,8 +59,8 @@ preloader -->
                                 </div>
 
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark font-weight-bold">User</p>
-                                    <h4>50</h4>
+                                    <p class="card-text text-dark font-weight-bold">{{ __('clients_trans.clients') }}</p>
+                                    <h4>{{\App\Models\Client::count()}}</h4>
                                 </div>
                             </a>
                         </div>
@@ -72,16 +72,16 @@ preloader -->
                 <div class="card card-statistics h-100">
                     <div class="card-body">
                         <div class="clearfix">
-                            <a href="#">
+                            <a href="{{ route('governorates.index') }}">
 
                                 <div class="float-left">
                                     <span class="text-warning">
-                                        <i class="fas fa-skiing highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-landmark highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark font-weight-bold">Skills</p>
-                                    <h4>60</h4>
+                                    <p class="card-text text-dark font-weight-bold">{{ trans('governorates_trans.governorates') }}</p>
+                                    <h4>{{\App\Models\Governorate::count()}}</h4>
                                 </div>
                             </a>
                         </div>
@@ -93,15 +93,15 @@ preloader -->
                 <div class="card card-statistics h-100">
                     <div class="card-body">
                         <div class="clearfix">
-                            <a href="#">
+                            <a href="{{ route('comments.index') }}">
                                 <div class="float-left">
                                     <span class="text-success">
-                                        <i class="fa fa-wrench highlight-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-comments highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Services</p>
-                                    <h4>40</h4>
+                                    <p class="card-text text-dark">{{ trans('comments_trans.comments') }}</p>
+                                    <h4>{{\App\Models\Comment::count()}}</h4>
                                 </div>
                             </a>
                         </div>
@@ -112,15 +112,15 @@ preloader -->
                 <div class="card card-statistics h-100">
                     <div class="card-body">
                         <div class="clearfix">
-                            <a href="#">
+                            <a href="{{ route('contacts.index') }}">
                                 <div class="float-left">
                                     <span class="text-success">
-                                        <i class="fa fa-id-badge highlight-icon" aria-hidden="true"></i>
+                                        <i class="fas fa-phone highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Contact</p>
-                                    <h4>60</h4>
+                                    <p class="card-text text-dark">{{ trans('contacts_trans.contacts') }}</p>
+                                    <h4>{{\App\Models\Contact::count()}}</h4>
                                 </div>
                             </a>
                         </div>

@@ -10,7 +10,7 @@ class TourDetail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tour_id', 'image', 'description', 'rate', 'agenda', 'from_month', 'to_month', 'price'
+        'tour_id', 'image','sub_tour_id', 'description', 'rate', 'agenda', 'from_month', 'to_month', 'price'
     ];
 
     protected $casts = [
@@ -38,6 +38,7 @@ class TourDetail extends Model
             'evening' => $agenda['evening'] ?? ['text' => '', 'images' => []],
         ];
     }
+
 
     public function subTour()
     {
