@@ -28,6 +28,16 @@ return [
     'actions' => 'Actions',
     'confirm_delete' => 'Êtes-vous sûr de vouloir supprimer ?',
     'agenda' => 'Programme',
+    'title_ar' => 'Titre Arabe',
+    'title_it' => 'Titre Italien',
+    'title_de' => 'Titre Allemand',
+    'title_fr' => 'Titre Français',
+    'title_es' => 'Titre Espagnol',
+    'title_en' => 'Titre Anglais',
     'description' => 'Description',
+    'select_tour_detail' => 'Sélectionner le détail du tour',
+    'tour_details_info' => 'Informations sur le détail du tour',
+    "add_tour_detail_info"=> "Ajouter les informations de détail du tour",
+  "edit_tour_detail_info"=> "Modifier les informations de détail du tour"
 
 ];

@@ -18,15 +18,12 @@ class CreateTourDetailsTable extends Migration
             $table->foreignId('tour_id')->constrained()->onDelete('cascade');
             $table->foreignId('sub_tour_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('image');
+            $table->json('title'); // مضاف جديد
             $table->json('description'); // وصف كبير متعدد اللغات
-            $table->tinyInteger('rate'); // من 1 إلى 5
-            $table->json('agenda')->nullable(); // يحتوي على morning, noon, evening
-            $table->string('from_month'); // مثلاً June
-            $table->string('to_month'); // مثلاً August
-            $table->decimal('price', 10, 2); // السعر
             $table->string('location')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**

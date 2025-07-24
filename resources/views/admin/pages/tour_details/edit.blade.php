@@ -1,9 +1,12 @@
 @extends('admin.layouts.master')
+
 @section('title') {{ __('tour_details_trans.edit_tour_detail') }} @endsection
+
 @section('content')
     <form action="{{ route('tour_details.update', $tourDetail->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+
         <div class="row">
             <div class="col-md-6">
                 <label>{{ __('tour_details_trans.tour') }}</label>
@@ -39,27 +42,16 @@
             @endif
         </div>
 
+
+
+        <br>
+
         <div class="row">
-            @foreach(['ar','en','fr','es','it','de'] as $lang)
+            @foreach(['ar','en','fr','es','it','de'] as $locale)
                 <div class="col-md-6">
-                    <label>{{ __('tour_details_trans.description_' . $lang) }}</label>
-                    <textarea name="description_{{ $lang }}" class="form-control" rows="3">{{ $tourDetail->description[$lang] ?? '' }}</textarea>
-                </div>
-            @endforeach
-        </div>
-
-        <br>
-
-        <div class="form-group">
-            <label>{{ __('tour_details_trans.rate') }}</label>
-            <input type="number" name="rate" class="form-control" value="{{ $tourDetail->rate }}" min="1" max="5">
-        </div>
-
-        <div class="row">
-            @foreach(['morning','noon','evening'] as $time)
-                <div class="col-md-4">
-                    <label>{{ __('tour_details_trans.' . $time) }}</label>
-                    <textarea name="agenda[{{ $time }}][text]" class="form-control">{{ $tourDetail->agenda[$time]['text'] ?? '' }}</textarea>
+                    <label>{{ __('tour_details_trans.title_' . $locale) }}</label>
+                    <input type="text" name="title_{{ $locale }}" class="form-control" value="{{ $tourDetail->title[$locale] ?? '' }}">
+                    @error('title_' . $locale)<div class="text-danger">{{ $message }}</div>@enderror
                 </div>
             @endforeach
         </div>
@@ -67,22 +59,16 @@
         <br>
 
         <div class="row">
-            <div class="col-md-6">
-                <label>{{ __('tour_details_trans.from_month') }}</label>
-                <input type="text" name="from_month" class="form-control" value="{{ $tourDetail->from_month }}">
-            </div>
-            <div class="col-md-6">
-                <label>{{ __('tour_details_trans.to_month') }}</label>
-                <input type="text" name="to_month" class="form-control" value="{{ $tourDetail->to_month }}">
-            </div>
+            @foreach(['ar','en','fr','es','it','de'] as $locale)
+                <div class="col-md-6">
+                    <label>{{ __('tour_details_trans.description_' . $locale) }}</label>
+                    <input type="text" name="description_{{ $locale }}" class="form-control" value="{{ $tourDetail->description[$locale] ?? '' }}">
+                    @error('description_' . $locale)<div class="text-danger">{{ $message }}</div>@enderror
+                </div>
+            @endforeach
         </div>
 
         <br>
-
-        <div class="form-group">
-            <label>{{ __('tour_details_trans.price') }}</label>
-            <input type="text" name="price" class="form-control" value="{{ $tourDetail->price }}">
-        </div>
 
         <div class="form-group">
             <label>{{ __('tour_details_trans.location') }}</label>

@@ -64,6 +64,14 @@ class CommentController extends Controller
                 ], 422);
             }
 
+            if (!empty($data['lang']) && (!is_string($data['lang']) || strlen($data['lang']) >255)) {
+                return response()->json([
+                    'message' => 'Validation failed.',
+                    'errors' => ['image' => 'lang must be a valid string.'],
+                ], 422);
+            }
+
+
             $comment = Comment::create($data);
 
             return response()->json([
@@ -78,44 +86,44 @@ class CommentController extends Controller
         }
     }
 
-public function reviews($tour_detail_id)
-{
-    $locale = request()->header('Accept-Language', 'en');
+    public function reviews($tour_detail_id)
+    {
+        $locale = request()->header('Accept-Language', 'en');
 
-    // التحقق إن الـ TourDetail موجود
-    $detail = \App\Models\TourDetail::with('comments.client')->find($tour_detail_id);
+        // التحقق إن الـ TourDetail موجود
+        $detail = \App\Models\TourDetail::with('comments.client')->find($tour_detail_id);
 
-    if (!$detail) {
-        return response()->json(['message' => 'Tour detail not found.'], 404);
+        if (!$detail) {
+            return response()->json(['message' => 'Tour detail not found.'], 404);
+        }
+
+        // الكومنتات
+        $comments = $detail->comments->map(function ($comment) use ($locale) {
+            return [
+                'name'      => $comment->name,
+                'email'     => $comment->email,
+                'comment'   => $comment->comment,
+                'rating'    => $comment->rating,
+                'image'     => $comment->image,
+                'client'    => $comment->client ? [
+                    'id'   => $comment->client->id,
+                    'name' => $comment->client->name ?? '',
+                    'phone' => $comment->client->phone ?? '',
+                ] : null,
+                'created_at' => $comment->created_at->format('Y-m-d H:i'),
+            ];
+        });
+
+        // متوسط التقييم
+        $averageRating = $detail->comments->avg('rating');
+
+        return response()->json([
+            'tour_detail_id' => $detail->id,
+            'tour_name'      => optional($detail->tour)->getLocalizedName($locale),
+            'rate_avg'       => round($averageRating, 1),
+            'total_comments' => $detail->comments->count(),
+            'comments'       => $comments,
+        ]);
     }
-
-    // الكومنتات
-    $comments = $detail->comments->map(function ($comment) use ($locale) {
-        return [
-            'name'      => $comment->name,
-            'email'     => $comment->email,
-            'comment'   => $comment->comment,
-            'rating'    => $comment->rating,
-            'image'     => $comment->image,
-            'client'    => $comment->client ? [
-                'id'   => $comment->client->id,
-                'name' => $comment->client->name ?? '',
-                'phone' => $comment->client->phone ?? '',
-            ] : null,
-            'created_at' => $comment->created_at->format('Y-m-d H:i'),
-        ];
-    });
-
-    // متوسط التقييم
-    $averageRating = $detail->comments->avg('rating');
-
-    return response()->json([
-        'tour_detail_id' => $detail->id,
-        'tour_name'      => optional($detail->tour)->getLocalizedName($locale),
-        'rate_avg'       => round($averageRating, 1),
-        'total_comments' => $detail->comments->count(),
-        'comments'       => $comments,
-    ]);
-}
 
 }

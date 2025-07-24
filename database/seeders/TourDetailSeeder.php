@@ -46,21 +46,27 @@ class TourDetailSeeder extends Seeder
                     'de' => 'Genießen Sie ein vollständiges kulturelles Erlebnis im Herzen Ägyptens.',
                     'es' => 'Disfruta de una experiencia cultural completa en el corazón de Egipto.',
                 ],
-                'rate' => rand(3, 5),
-                'agenda' => [
-                    'morning' => [
-                        'text' => 'زيارة المتحف الوطني وتجول في السوق.',
-                    ],
-                    'noon' => [
-                        'text' => 'تناول الغداء في مطعم مطل على النيل.',
-                    ],
-                    'evening' => [
-                        'text' => 'رحلة بحرية وحفل موسيقي تقليدي.',
-                    ],
+                'title'  => [
+                    'en' => 'Enjoy a full cultural experience in the heart of Egypt.',
+                    'fr' => 'Profitez d\'une expérience culturelle complète au cœur de l\'Égypte.',
+                    'it' => 'Goditi un\'esperienza culturale completa nel cuore dell\'Egitto.',
+                    'de' => 'Genießen Sie ein vollständiges kulturelles Erlebnis im Herzen Ägyptens.',
+                    'es' => 'Disfruta de una experiencia cultural completa en el corazón de Egipto.',
                 ],
-                'from_month' => 'June',
-                'to_month' => 'August',
-                'price' => rand(500, 1000),
+//                'agenda' => [
+//                    'morning' => [
+//                        'text' => 'زيارة المتحف الوطني وتجول في السوق.',
+//                    ],
+//                    'noon' => [
+//                        'text' => 'تناول الغداء في مطعم مطل على النيل.',
+//                    ],
+//                    'evening' => [
+//                        'text' => 'رحلة بحرية وحفل موسيقي تقليدي.',
+//                    ],
+//                ],
+//                'from_month' => 'June',
+//                'to_month' => 'August',
+//                'price' => rand(500, 1000),
                 'location' => 'Cairo, Egypt',
             ]);
             $id++; // زيادة الـ ID للسجل التالي

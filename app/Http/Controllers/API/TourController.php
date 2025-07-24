@@ -33,37 +33,68 @@ class TourController extends Controller
     return response()->json($tours);
 }
 
+public function tourDetailsBySubTourId($sub_tour_id, Request $request)
+{
+    $locale = $request->header('Accept-Language', 'en');
 
-    public function show($id)
-    {
-        $locale = request()->header('Accept-Language', 'en');
+    // جيب كل التفاصيل المرتبطة بالـ sub_tour_id
+    $details = TourDetail::with(['info', 'subTour', 'tour', 'comments'])
+        ->where('sub_tour_id', $sub_tour_id)
+        ->get();
 
-        $detail = TourDetail::with('tour.comments')->findOrFail($id);
+    if ($details->isEmpty()) {
+        return response()->json(['message' => 'No details found for this sub tour'], 404);
+    }
 
-        // حساب متوسط التقييم من التعليقات
-        $averageRating = $detail->tour->comments->avg('rating') ?? 0;
+    $response = $details->map(function ($detail) use ($locale) {
+        $infos = $detail->info->map(function ($info) {
+            // تأكد من تحويل الـ agenda إلى Array
+            $agenda = is_array($info->agenda) ? $info->agenda : json_decode($info->agenda, true) ?? [];
 
-        // تجهيز الأجندة بصيغة منظمة
-        $agenda = collect($detail->agenda)->map(function ($item) {
             return [
-                'text'  => $item['text'] ?? '',
+                'from_month' => $info->from_month,
+                'to_month'   => $info->to_month,
+                'price'      => $info->price,
+                'agenda'     => [
+                    'morning' => [
+                        'text'   => is_array($agenda['morning'] ?? null)
+                            ? ($agenda['morning']['text'] ?? '')
+                            : ($agenda['morning'] ?? ''),
+                    ],
+                    'noon' => [
+                        'text'   => is_array($agenda['noon'] ?? null)
+                            ? ($agenda['noon']['text'] ?? '')
+                            : ($agenda['noon'] ?? ''),
+                    ],
+                    'evening' => [
+                        'text'   => is_array($agenda['evening'] ?? null)
+                            ? ($agenda['evening']['text'] ?? '')
+                            : ($agenda['evening'] ?? ''),
+                    ],
+                ],
             ];
         });
 
-        return response()->json([
-            'tour_detail_id' => $detail->id,
-            'tour_id'        => $detail->tour_id,
-            'tour_name'      => $detail->tour->getLocalizedName($locale),
-            'tour_type'      => $detail->tour->type,
-            'image'          => $detail->image,
-            'description'    => $detail->description[$locale] ?? '',
-            'agenda'         => $agenda,
-            'from_month'     => $detail->from_month,
-            'to_month'       => $detail->to_month,
-            'price'          => $detail->price,
-            'location'       => $detail->location,
-            'rate'           => round($averageRating, 1),
-        ]);
-    }
+        return [
+            'id'          => $detail->id,
+            'title'       => $detail->title[$locale] ?? '',
+            'description' => $detail->description[$locale] ?? '',
+            'location'    => $detail->location,
+            'image'       => $detail->image,
+            'sub_tour'    => $detail->subTour?->name[$locale] ?? '',
+            'tour'        => $detail->tour?->name[$locale] ?? '',
+            'tour_type'   => $detail->tour?->type,
+            'rate'        => round($detail->comments->avg('rating') ?? 0, 1),
+            'info'        => $infos,
+        ];
+    });
+
+    return response()->json($response);
+}
+
+
+
+
+
   
 }

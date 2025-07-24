@@ -24,10 +24,22 @@ return [
     'price' => 'Price',
     'location' => 'Location',
     'submit' => 'Submit',
+    "select_tour_detail"=> "Select Tour Detail",
+    "tour_details_info"=> "Tour Details Info",
     'update' => 'Update',
     'actions' => 'Actions',
     'confirm_delete' => 'Are you sure you want to delete?',
     'agenda' => 'Agenda',
+    'title'=>'Beautification',
+    'title_ar' => 'Arabic Title',
+    'title_it' => 'Italian Title',
+    'title_de' => 'German Title',
+    'title_fr' => 'French Title',
+    'title_es' => 'Spanish Title',
+    'title_en' => 'English Title',
     'description' => 'Description',
+     "add_tour_detail_info"=> "Add Tour Detail Info",
+     "edit_tour_detail_info"=> "Edit Tour Detail Info"
+
 
 ];

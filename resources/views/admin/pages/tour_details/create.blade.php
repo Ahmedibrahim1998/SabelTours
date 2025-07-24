@@ -1,87 +1,78 @@
 @extends('admin.layouts.master')
-@section('title') {{ __('tour_details_trans.add_tour_detail') }} @endsection
+
+@section('title')
+    {{ __('tour_details_trans.add_tour_detail') }}
+@endsection
+
 @section('content')
     <form action="{{ route('tour_details.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="row">
-            <div class="col-md-6">
-                <label>{{ __('tour_details_trans.tour') }}</label>
-                <select name="tour_id" class="form-control" required>
-                    <option value="">{{ __('tour_details_trans.select_tour') }}</option>
-                    @foreach($tours as $tour)
-                        <option value="{{ $tour->id }}">{{ $tour->getLocalizedName(app()->getLocale()) }}</option>
-                    @endforeach
-                </select>
-            </div>
 
-            <div class="col-md-6">
-                <label>{{ __('tour_details_trans.sub_tour') }}</label>
-                <select name="sub_tour_id" class="form-control">
-                    <option value="">{{ __('tour_details_trans.select_sub_tour') }}</option>
-                    @foreach($subTours as $sub)
-                        <option value="{{ $sub->id }}">{{ $sub->getLocalizedName(app()->getLocale()) }}</option>
-                    @endforeach
-                </select>
-            </div>
+        <div class="form-group">
+            <label>{{ __('tour_details_trans.tour') }}</label>
+            <select name="tour_id" class="form-control @error('tour_id') is-invalid @enderror" required>
+                <option value="">{{ __('tour_details_trans.select_tour') }}</option>
+                @foreach ($tours as $tour)
+                    <option value="{{ $tour->id }}">{{ $tour->getLocalizedName(app()->getLocale()) }}</option>
+                @endforeach
+            </select>
+            @error('tour_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
-        <br>
+        <div class="form-group">
+            <label>{{ __('tour_details_trans.sub_tour') }}</label>
+            <select name="sub_tour_id" class="form-control @error('sub_tour_id') is-invalid @enderror">
+                <option value="">{{ __('tour_details_trans.select_sub_tour') }}</option>
+                @foreach ($subTours as $sub)
+                    <option value="{{ $sub->id }}" {{ old('sub_tour_id') == $sub->id ? 'selected' : '' }}>
+                        {{ $sub->getLocalizedName(app()->getLocale()) }}
+                    </option>
+                @endforeach
+            </select>
+            @error('sub_tour_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
         <div class="form-group">
             <label>{{ __('tour_details_trans.image') }}</label>
-            <input type="file" name="image" class="form-control" required>
+            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" required>
+            @error('image')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="row">
-            @foreach(['ar','en','fr','es','it','de'] as $lang)
+            @foreach(['ar','en','fr','es','it','de'] as $locale)
                 <div class="col-md-6">
-                    <label>{{ __('tour_details_trans.description_' . $lang) }}</label>
-                    <textarea name="description_{{ $lang }}" class="form-control" rows="3"></textarea>
+                    <label>{{ __('tour_details_trans.title_' . $locale) }}</label>
+                    <input type="text" name="title_{{ $locale }}" class="form-control" value="{{ old('title' . $locale) }}">
+                    @error('title_' . $locale)<div class="text-danger">{{ $message }}</div>@enderror
                 </div>
             @endforeach
         </div>
 
-        <br>
-
-        <div class="form-group">
-            <label>{{ __('tour_details_trans.rate') }}</label>
-            <input type="number" name="rate" class="form-control" min="1" max="5">
-        </div>
-
         <div class="row">
-            @foreach(['morning','noon','evening'] as $time)
-                <div class="col-md-4">
-                    <label>{{ __('tour_details_trans.' . $time) }}</label>
-                    <textarea name="agenda[{{ $time }}][text]" class="form-control"></textarea>
+            @foreach(['ar','en','fr','es','it','de'] as $locale)
+                <div class="col-md-6">
+                    <label>{{ __('tour_details_trans.description_' . $locale) }}</label>
+                    <input type="text" name="description_{{ $locale }}" class="form-control" value="{{ old('description' . $locale) }}">
+                    @error('description_' . $locale)<div class="text-danger">{{ $message }}</div>@enderror
                 </div>
             @endforeach
         </div>
 
-        <br>
-
-        <div class="row">
-            <div class="col-md-6">
-                <label>{{ __('tour_details_trans.from_month') }}</label>
-                <input type="text" name="from_month" class="form-control">
-            </div>
-            <div class="col-md-6">
-                <label>{{ __('tour_details_trans.to_month') }}</label>
-                <input type="text" name="to_month" class="form-control">
-            </div>
-        </div>
-
-        <br>
-
-        <div class="form-group">
-            <label>{{ __('tour_details_trans.price') }}</label>
-            <input type="text" name="price" class="form-control">
-        </div>
-
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label>{{ __('tour_details_trans.location') }}</label>
-            <input type="text" name="location" class="form-control">
+            <input type="text" name="location" value="{{ old('location') }}"
+                   class="form-control @error('location') is-invalid @enderror">
+            @error('location')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">{{ __('tour_details_trans.submit') }}</button>
+        <button type="submit" class="btn btn-primary mt-3">{{ __('tour_details_trans.submit') }}</button>
     </form>
 @endsection

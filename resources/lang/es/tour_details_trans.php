@@ -28,6 +28,17 @@ return [
     'actions' => 'Acciones',
     'confirm_delete' => '¿Estás seguro de que deseas eliminar?',
     'agenda' => 'Programa',
+    'title'=>'Embellecimiento',
+    'title_ar' => 'Arabic Title',
+    'title_it' => 'Italian Title',
+    'title_de' => 'German Title',
+    'title_fr' => 'French Title',
+    'title_es' => 'Spanish Title',
+    'title_en' => 'English Title',
     'description' => 'Descripción',
+    'select_tour_detail' => 'Seleccionar detalle del tour',
+    'tour_details_info' => 'Información del detalle del tour',
+    "add_tour_detail_info"=> "Agregar información del detalle del tour",
+   "edit_tour_detail_info"=> "Editar información del detalle del tour"
 
 ];

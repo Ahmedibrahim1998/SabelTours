@@ -28,6 +28,12 @@ return [
     'actions' => 'Azioni',
     'confirm_delete' => 'Sei sicuro di voler eliminare?',
     'agenda' => 'Programma',
+    'title'=>'Abbellimento',
+    'title_it'=>'Abbellimento',
     'description' => 'Descrizione',
+    'select_tour_detail' => 'Seleziona dettaglio tour',
+    'tour_details_info' => 'Informazioni sul dettaglio tour',
+        "add_tour_detail_info"=> "Aggiungi info dettaglio tour",
+  "edit_tour_detail_info"=> "Modifica info dettaglio tour"
 
 ];

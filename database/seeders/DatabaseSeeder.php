@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([TourSeeder::class,]);
         $this->call([SubTourSeeder::class,]);
         $this->call([TourDetailSeeder::class,]);
+        $this->call([TourDetailInfoSeeder::class,]);
         $this->call([CommentSeeder::class,]);
     }
 }

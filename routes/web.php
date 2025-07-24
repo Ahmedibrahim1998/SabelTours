@@ -39,6 +39,7 @@ Route::group(
         Route::resource('tours', TourController::class);
         Route::resource('sub-tours', SubTourController::class);
         Route::resource('tour_details', TourDetailController::class);
+        Route::resource('tour_detail_infos', TourDetailInfoController::class);
         Route::resource('comments', CommentController::class)->except(['create', 'store','edit','update']);
         Route::resource('trips', TripController::class)->except(['create','store']);
 

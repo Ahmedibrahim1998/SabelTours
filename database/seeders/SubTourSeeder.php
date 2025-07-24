@@ -40,6 +40,13 @@ class SubTourSeeder extends Seeder
                     'sub_tour_id' => $sub->id,
                     'tour_id'     => $tour->id,
                     'image'       => 'https://source.unsplash.com/800x600/?egypt,tour,' . rand(1, 100),
+                    'title'  => [
+                        'en' => 'Enjoy a full cultural experience in the heart of Egypt.',
+                        'fr' => 'Profitez d\'une expérience culturelle complète au cœur de l\'Égypte.',
+                        'it' => 'Goditi un\'esperienza culturale completa nel cuore dell\'Egitto.',
+                        'de' => 'Genießen Sie ein vollständiges kulturelles Erlebnis im Herzen Ägyptens.',
+                        'es' => 'Disfruta de una experiencia cultural completa en el corazón de Egipto.',
+                    ],
                     'description' => [
                         'en' => 'Full details for this trip.',
                         'fr' => 'Détails complets pour ce voyage.',
@@ -47,15 +54,6 @@ class SubTourSeeder extends Seeder
                         'de' => 'Vollständige Details zu dieser Reise.',
                         'es' => 'Detalles completos de este viaje.',
                     ],
-                    'rate'        => rand(3, 5),
-                    'agenda'      => [
-                        'morning' => ['text' => 'زيارة صباحية', 'image' => null],
-                        'noon'    => ['text' => 'غداء لذيذ', 'image' => null],
-                        'evening' => ['text' => 'نشاط مسائي', 'image' => null],
-                    ],
-                    'from_month'  => 'June',
-                    'to_month'    => 'August',
-                    'price'       => rand(500, 1500),
                     'location'    => 'Cairo, Egypt',
                 ]);
             }

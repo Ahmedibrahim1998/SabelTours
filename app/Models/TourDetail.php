@@ -10,12 +10,12 @@ class TourDetail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tour_id', 'image','sub_tour_id', 'description', 'rate', 'agenda', 'from_month', 'to_month', 'price'
+        'tour_id', 'image','sub_tour_id', 'description','title','location'
     ];
 
     protected $casts = [
         'description' => 'array',
-        'agenda' => 'array',
+        'title' => 'array',
     ];
 
     public function tour()
@@ -23,23 +23,21 @@ class TourDetail extends Model
         return $this->belongsTo(Tour::class);
     }
 
+    public function info()
+    {
+        return $this->hasMany(TourDetailInfo::class, 'tour_detail_id');
+    }
+
+    public function getLocalizedTitle($locale)
+    {
+        return $this->title[$locale] ?? $this->title['en'] ?? '';
+    }
+
+
     public function getLocalizedDescription($locale)
     {
         return $this->description[$locale] ?? $this->description['en'] ?? '';
     }
-
-    public function getAgendaDetails()
-    {
-        $agenda = $this->agenda;
-
-        return [
-            'morning' => $agenda['morning'] ?? ['text' => '', 'images' => []],
-            'noon'    => $agenda['noon'] ?? ['text' => '', 'images' => []],
-            'evening' => $agenda['evening'] ?? ['text' => '', 'images' => []],
-        ];
-    }
-
-
     public function subTour()
     {
         return $this->belongsTo(SubTour::class);

@@ -57,6 +57,7 @@
                             <li><a href="{{ route('tours.index') }}">{{ trans('tours_trans.tours') }}</a></li>
                             <li><a href="{{ route('sub-tours.index') }}">{{ trans('sub_tours_trans.sub_tours') }}</a></li>
                             <li><a href="{{ route('tour_details.index') }}">{{ trans('tour_details_trans.tour_details') }}</a></li>
+                            <li><a href="{{ route('tour_detail_infos.index') }}">{{ trans('tour_details_trans.tour_details_info') }}</a></li>
                             <li><a href="{{ route('comments.index') }}">{{ trans('comments_trans.comments') }}</a></li>
                             <li><a href="{{ route('trips.index') }}">{{ trans('trips_trans.trips') }}</a></li>
                         </ul>

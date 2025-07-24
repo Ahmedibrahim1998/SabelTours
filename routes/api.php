@@ -22,7 +22,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "API" middleware group. Enjoy building your API!
+| is assigned the "api" middleware group. Enjoy building your API!
 |
 */
 
@@ -59,15 +59,16 @@ Route::group([
     // Tours
 
     Route::get('tours', [TourController::class, 'index']);
-    Route::get('/tours/{id}/details', [TourController::class, 'show']);
-    Route::get('/sub-tours-by-type', [SubTourController::class, 'indexByType']);
-
+    Route::get('/sub-tours-by-type/{id}', [SubTourController::class, 'indexByType']);
+    // Route::get('/tours/{id}/details', [TourController::class, 'tourDetailsByTourId']);
+    Route::get('/sub-tours/{sub_tour_id}/details', [TourController::class, 'tourDetailsBySubTourId']);
     // comments
+
     Route::post('/comments', [CommentController::class, 'store']);
 
     // Book Trip
     Route::post('/trips', [TripController::class, 'store']);
-
+    
     // Review TourDeatils
     Route::get('/reviews/{tour_detail_id}', [CommentController::class, 'reviews']);
 

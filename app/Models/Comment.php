@@ -17,6 +17,7 @@ class Comment extends Model
         'image',
         'tour_detail_id',
         'client_id',
+        'lang'
     ];
 
     public function client()
