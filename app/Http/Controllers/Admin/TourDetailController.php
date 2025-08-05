@@ -51,8 +51,12 @@ class TourDetailController extends Controller
                 'de' => $request->input('description_de'),
             ];
 
-            $fileName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName());
-            $request->file('image')->move(public_path('uploads/tour_details'), $fileName);
+            $file = $request->file('image');
+            $originalName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+            $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
+            $file->move(public_path('uploads/tour_details'), $fileName);
             $imagePath = 'uploads/tour_details/' . $fileName;
 
             TourDetail::create([

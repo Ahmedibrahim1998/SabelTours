@@ -56,8 +56,12 @@ class TourController extends Controller
             // رفع الصورة الرئيسية
             $imagePath = null;
             if ($request->hasFile('image')) {
-                $imageName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName());
-                $request->file('image')->move(public_path('uploads/tours'), $imageName);
+                $file = $request->file('image');
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $imageName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
+                $file->move(public_path('uploads/tours'), $imageName);
                 $imagePath = 'uploads/tours/' . $imageName;
             }
 
@@ -65,7 +69,10 @@ class TourController extends Controller
 
             if ($request->hasFile('gallery')) {
                 foreach ($request->file('gallery') as $file) {
-                    $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                    $originalName = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                    $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                     $file->move(public_path('uploads/tours/gallery'), $fileName);
                     $gallery[] = 'uploads/tours/gallery/' . $fileName;
                 }
@@ -148,8 +155,12 @@ class TourController extends Controller
                 if (file_exists(public_path($tour->image))) {
                     unlink(public_path($tour->image));
                 }
-                $fileName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName());
-                $request->file('image')->move(public_path('uploads/tours'), $fileName);
+                $file = $request->file('image');
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
+                $file->move(public_path('uploads/tours'), $fileName);
                 $tour->image = 'uploads/tours/' . $fileName;
             }
 
@@ -163,7 +174,10 @@ class TourController extends Controller
                 }
 
                 foreach ($request->file('gallery') as $file) {
-                    $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                    $originalName = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                    $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                     $file->move(public_path('uploads/tours/gallery'), $fileName);
                     $newGallery[] = 'uploads/tours/gallery/' . $fileName;
                 }

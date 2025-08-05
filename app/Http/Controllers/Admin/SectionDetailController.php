@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\SectionDetail;
 use App\Models\Section;
 use Illuminate\Http\Request;
-use Str;
+use Illuminate\Support\Str;
 
 class SectionDetailController extends Controller
 {
@@ -41,7 +41,10 @@ class SectionDetailController extends Controller
         $imagesArr = [];
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
-                $name = time().'_'.Str::slug($file->getClientOriginalName());
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
                 $file->move(public_path('uploads/section_details'), $name);
                 $imagesArr[] = 'uploads/section_details/'.$name;
             }
@@ -50,7 +53,10 @@ class SectionDetailController extends Controller
         $imageSingle = null;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $name = time().'_'.Str::slug($file->getClientOriginalName());
+            $originalName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+            $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
             $file->move(public_path('uploads/section_details'), $name);
             $imageSingle = 'uploads/section_details/'.$name;
         }
@@ -103,7 +109,10 @@ class SectionDetailController extends Controller
                 unlink(public_path($sectionDetail->image));
             }
             $file = $request->file('image');
-            $name = time().'_'.Str::slug($file->getClientOriginalName());
+            $originalName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+            $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
             $file->move(public_path('uploads/section_details'), $name);
             $sectionDetail->image = 'uploads/section_details/'.$name;
         }
@@ -114,7 +123,10 @@ class SectionDetailController extends Controller
             }
             $imgs = [];
             foreach ($request->file('images') as $file) {
-                $name = time().'_'.Str::slug($file->getClientOriginalName());
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
                 $file->move(public_path('uploads/section_details'), $name);
                 $imgs[] = 'uploads/section_details/'.$name;
             }

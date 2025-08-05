@@ -65,7 +65,10 @@ class PlaceController extends Controller
             // الصورة
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
-                $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                 $file->move(public_path('uploads/places'), $fileName);
                 $place->image = 'uploads/places/' . $fileName;
             } elseif ($request->filled('image_url')) {
@@ -141,7 +144,10 @@ class PlaceController extends Controller
                     unlink(public_path($place->image));
                 }
                 $file = $request->file('image');
-                $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                 $file->move(public_path('uploads/places'), $fileName);
                 $place->image = 'uploads/places/' . $fileName;
             } elseif ($request->filled('image_url')) {

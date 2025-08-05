@@ -47,7 +47,10 @@ class PlaceDetailController extends Controller
             // الصور من الجهاز
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $file) {
-                    $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                    $originalName = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                    $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                     $file->move(public_path('uploads/place_details'), $fileName);
                     $imagesPaths[] = 'uploads/place_details/' . $fileName;
                 }
@@ -129,7 +132,10 @@ class PlaceDetailController extends Controller
 
                 // رفع الصور الجديدة
                 foreach ($request->file('images') as $file) {
-                    $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                    $originalName = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                    $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                     $file->move(public_path('uploads/place_details'), $fileName);
                     $newImages[] = 'uploads/place_details/' . $fileName;
                 }

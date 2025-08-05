@@ -45,8 +45,12 @@ class SubTourController extends Controller
             $imagePath = null;
 
             if ($request->hasFile('image')) {
-                $fileName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName());
-                $request->file('image')->move(public_path('uploads/sub_tours'), $fileName);
+                $file = $request->file('image');
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
+                $file->move(public_path('uploads/sub_tours'), $fileName);
                 $imagePath = 'uploads/sub_tours/' . $fileName;
             } elseif ($request->filled('image_url')) {
                 $imagePath = trim($request->image_url);
@@ -106,8 +110,12 @@ class SubTourController extends Controller
                 if ($subTour->image && file_exists(public_path($subTour->image))) {
                     unlink(public_path($subTour->image));
                 }
-                $fileName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName());
-                $request->file('image')->move(public_path('uploads/sub_tours'), $fileName);
+                $file = $request->file('image');
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
+                $file->move(public_path('uploads/sub_tours'), $fileName);
                 $subTour->image = 'uploads/sub_tours/' . $fileName;
             } elseif ($request->filled('image_url')) {
                 $subTour->image = trim($request->image_url);

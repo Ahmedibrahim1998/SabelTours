@@ -6,13 +6,14 @@
 
 @section('content')
     <a href="{{ route('tour_detail_infos.create') }}" class="btn btn-success mb-3">
-        {{ __('tour_details_trans.add_tour_detail') }}
+        {{ __('tour_details_trans.add_tour_detail_info') }}
     </a>
 
     <table class="table table-bordered text-center">
         <thead>
         <tr>
             <th>#</th>
+            <th>{{ __('tour_details_trans.tour_detail') }}</th>
             <th>{{ __('tour_details_trans.from_month') }}</th>
             <th>{{ __('tour_details_trans.to_month') }}</th>
             <th>{{ __('tour_details_trans.price') }}</th>
@@ -23,8 +24,21 @@
         @foreach($tourDetailInfos as $index => $detailInfo)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $detailInfo->from_month ?? '-' }}</td>
-                <td>{{ $detailInfo->to_month ?? '-' }}</td>
+                <td>{{ $detailInfo->tourDetail->getLocalizedName(app()->getLocale()) ?? '-' }}</td>
+                <td>
+                    @if(is_array($detailInfo->from_month))
+                        {{ $detailInfo->from_month[app()->getLocale()] ?? $detailInfo->from_month['ar'] ?? '-' }}
+                    @else
+                        {{ $detailInfo->from_month ?? '-' }}
+                    @endif
+                </td>
+                <td>
+                    @if(is_array($detailInfo->to_month))
+                        {{ $detailInfo->to_month[app()->getLocale()] ?? $detailInfo->to_month['ar'] ?? '-' }}
+                    @else
+                        {{ $detailInfo->to_month ?? '-' }}
+                    @endif
+                </td>
                 <td>{{ number_format($detailInfo->price, 2) }}</td>
 
                 <td>

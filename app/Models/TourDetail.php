@@ -33,6 +33,10 @@ class TourDetail extends Model
         return $this->title[$locale] ?? $this->title['en'] ?? '';
     }
 
+    public function getLocalizedName($locale)
+    {
+        return $this->title[$locale] ?? $this->title['en'] ?? '';
+    }
 
     public function getLocalizedDescription($locale)
     {

@@ -64,7 +64,10 @@ class SectionController extends Controller
 
         // upload image
         $file = $request->file('image');
-        $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+        $originalName = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+        $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
         $file->move(public_path('uploads/sections'), $fileName);
         $section->image = 'uploads/sections/' . $fileName;
 
@@ -122,7 +125,10 @@ class SectionController extends Controller
                 unlink(public_path($section->image));
             }
             $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+            $originalName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+            $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
             $file->move(public_path('uploads/sections'), $fileName);
             $section->image = 'uploads/sections/' . $fileName;
         }

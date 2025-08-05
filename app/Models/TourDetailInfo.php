@@ -15,6 +15,8 @@ class TourDetailInfo extends Model
 
     protected $casts = [
         'agenda' => 'array',
+        'from_month' => 'array',
+        'to_month' => 'array',
     ];
 
     public function tourDetail()

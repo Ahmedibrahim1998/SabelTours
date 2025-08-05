@@ -72,7 +72,10 @@ class AboutUsController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
-                $fileName = time() . '_' . Str::slug($file->getClientOriginalName());
+                $originalName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+                $fileName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
                 $file->move(public_path('uploads/about'), $fileName);
                 $images[] = 'uploads/about/' . $fileName;
             }

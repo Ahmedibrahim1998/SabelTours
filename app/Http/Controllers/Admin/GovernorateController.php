@@ -55,7 +55,10 @@ class GovernorateController extends Controller
         // حفظ الصورة
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = time() . '_' . Str::slug($image->getClientOriginalName());
+            $originalName = $image->getClientOriginalName();
+            $extension = $image->getClientOriginalExtension();
+            $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
+            $imageName = time() . '_' . Str::slug($nameWithoutExtension) . '.' . $extension;
             $image->move(public_path('uploads/governorates'), $imageName);
             $data['image'] = 'uploads/governorates/' . $imageName;
 
