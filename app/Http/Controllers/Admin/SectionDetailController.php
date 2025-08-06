@@ -45,8 +45,8 @@ class SectionDetailController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
                 $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
-                $file->move(public_path('uploads/section_details'), $name);
-                $imagesArr[] = 'uploads/section_details/'.$name;
+                $file->move(public_path('uploads/section_details/section_details'), $name);
+                $imagesArr[] = 'uploads/section_details/section_details/'.$name;
             }
         }
 
@@ -113,7 +113,7 @@ class SectionDetailController extends Controller
             $extension = $file->getClientOriginalExtension();
             $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
             $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
-            $file->move(public_path('uploads/section_details'), $name);
+            $file->move(public_path('uploads/section_details/'), $name);
             $sectionDetail->image = 'uploads/section_details/'.$name;
         }
 
@@ -127,8 +127,8 @@ class SectionDetailController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
                 $name = time().'_'.Str::slug($nameWithoutExtension).'.'.$extension;
-                $file->move(public_path('uploads/section_details'), $name);
-                $imgs[] = 'uploads/section_details/'.$name;
+                $file->move(public_path('uploads/section_details/section_details'), $name);
+                $imgs[] = 'uploads/section_details/section_details/'.$name;
             }
             $sectionDetail->images = json_encode($imgs);
         }

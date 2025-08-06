@@ -23,7 +23,7 @@
             </td>
             <td>
                 <a href="{{ route('section-details.edit', $detail->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                <a href="{{ route('places.show', $detail->id) }}" class="btn btn-secondary btn-sm"><i class="fa fa-eye"></i></a>
+                <a href="{{ route('section-details.show', $detail->id) }}" class="btn btn-secondary btn-sm"><i class="fa fa-eye"></i></a>
                 <form action="{{ route('section-details.destroy', $detail->id) }}" method="POST" style="display:inline;">
                     @csrf @method('DELETE')
                     <button class="btn btn-danger btn-sm" onclick="return confirm('{{ __('section_details_trans.confirm_delete') }}')"><i class="fa fa-trash"></i></button>

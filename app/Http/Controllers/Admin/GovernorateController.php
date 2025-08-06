@@ -34,6 +34,7 @@ class GovernorateController extends Controller
             'name_it' => 'nullable|string',
             'name_de' => 'nullable|string',
             'name_es' => 'nullable|string',
+            'places_count' => 'required',
         ]);
 
         // تجميع الأسماء باللغات في شكل array
@@ -48,7 +49,7 @@ class GovernorateController extends Controller
 
         $data = [
             'name' => json_encode($name, JSON_UNESCAPED_UNICODE),
-            'places_count' => 0, // يمكن تعديله لاحقًا
+            'places_count' => $request->places_count, // يمكن تعديله لاحقًا
             'image' => null,
         ];
 
@@ -71,7 +72,6 @@ class GovernorateController extends Controller
 
         return redirect()->route('governorates.index')->with('success', __('governorates_trans.created_successfully'));
     }
-
 
 
     public function show($id)
@@ -101,7 +101,8 @@ class GovernorateController extends Controller
             'name_fr' => 'nullable|string',
             'name_it' => 'nullable|string',
             'name_de' => 'nullable|string',
-            'image' => 'nullable|image',
+            'image'   => 'nullable|image',
+            'places_count' => 'required',
         ]);
 
         $governorate->name = [
@@ -113,6 +114,7 @@ class GovernorateController extends Controller
             'de' => $request->name_de,
         ];
 
+        $governorate->places_count= $request->places_count;
         // تحديث الصورة إن وُجدت
         if ($request->hasFile('image')) {
             // حذف الصورة القديمة إن وُجدت وكانت محلية (وليست رابط خارجي)
@@ -140,7 +142,6 @@ class GovernorateController extends Controller
             }
             $governorate->image = $request->image_url;
         }
-
 
         $governorate->save();
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class TourController extends Controller
 {
@@ -206,21 +207,40 @@ class TourController extends Controller
 
     public function destroy($id)
     {
-        $tour = Tour::findOrFail($id);
+        try {
+            $tour = Tour::findOrFail($id);
 
-        if (file_exists(public_path($tour->image))) {
-            unlink(public_path($tour->image));
-        }
-
-        foreach ($tour->gallery ?? [] as $img) {
-            if (!Str::startsWith($img, ['http', 'https']) && file_exists(public_path($img))) {
-                unlink(public_path($img));
+            // حذف الصورة الرئيسية
+            if ($tour->image && !empty($tour->image)) {
+                $imagePath = public_path($tour->image);
+                if (file_exists($imagePath) && is_file($imagePath)) {
+                    if (!unlink($imagePath)) {
+                        Log::warning("Failed to delete image: {$imagePath}");
+                    }
+                }
             }
+
+            // حذف صور المعرض
+            if (is_array($tour->gallery)) {
+                foreach ($tour->gallery as $img) {
+                    if (!empty($img) && !Str::startsWith($img, ['http', 'https'])) {
+                        $imgPath = public_path($img);
+                        if (file_exists($imgPath) && is_file($imgPath)) {
+                            if (!unlink($imgPath)) {
+                                Log::warning("Failed to delete gallery image: {$imgPath}");
+                            }
+                        }
+                    }
+                }
+            }
+
+            $tour->delete();
+            toastr()->success(__('messages.Delete'));
+        } catch (\Exception $e) {
+            Log::error("Error deleting Tour: " . $e->getMessage());
+            toastr()->error(__('messages.error'));
         }
 
-        $tour->delete();
-
-        toastr()->success(__('messages.Delete'));
         return redirect()->route('tours.index');
     }
 }

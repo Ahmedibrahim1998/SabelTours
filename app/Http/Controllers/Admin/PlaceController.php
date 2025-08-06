@@ -7,6 +7,7 @@ use App\Models\Place;
 use App\Models\Governorate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class PlaceController extends Controller
 {
@@ -168,13 +169,26 @@ class PlaceController extends Controller
 
     public function destroy($id)
     {
-        $place = Place::findOrFail($id);
-        if ($place->image && file_exists(public_path($place->image))) {
-            unlink(public_path($place->image));
+        try {
+            $place = Place::findOrFail($id);
+            
+            // حذف الصورة
+            if ($place->image && !empty($place->image)) {
+                $imagePath = public_path($place->image);
+                if (file_exists($imagePath) && is_file($imagePath)) {
+                    if (!unlink($imagePath)) {
+                        Log::warning("Failed to delete image: {$imagePath}");
+                    }
+                }
+            }
+            
+            $place->delete();
+            toastr()->success(__('messages.Delete'));
+        } catch (\Exception $e) {
+            Log::error("Error deleting Place: " . $e->getMessage());
+            toastr()->error(__('messages.error'));
         }
-        $place->delete();
-
-        toastr()->success(__('messages.Delete'));
+        
         return redirect()->route('places.index');
     }
 }

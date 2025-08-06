@@ -7,6 +7,7 @@ use App\Models\SubTour;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class SubTourController extends Controller
 {

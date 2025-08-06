@@ -19,7 +19,7 @@
                 </select>
                 @error('tour_detail_id')<div class="text-danger">{{ $message }}</div>@enderror
             </div>
-        </div>
+            </div>
 
         <!-- From Month - متعدد اللغات -->
         <div class="card">
@@ -76,14 +76,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+        <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>{{ __('tour_details_trans.from_month') }} ({{ __('tour_details_trans.language_de') }})</label>
                             <input type="text" name="from_month_de" class="form-control @error('from_month_de') is-invalid @enderror" value="{{ old('from_month_de') }}">
                             @error('from_month_de')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
                         </div>
                     </div>
                 </div>
@@ -140,14 +140,14 @@
                             <label>{{ __('tour_details_trans.to_month') }} ({{ __('tour_details_trans.language_it') }})</label>
                             <input type="text" name="to_month_it" class="form-control @error('to_month_it') is-invalid @enderror" value="{{ old('to_month_it') }}">
                             @error('to_month_it')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+        </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
+        <div class="form-group">
                             <label>{{ __('tour_details_trans.to_month') }} ({{ __('tour_details_trans.language_de') }})</label>
                             <input type="text" name="to_month_de" class="form-control @error('to_month_de') is-invalid @enderror" value="{{ old('to_month_de') }}">
                             @error('to_month_de')
@@ -232,11 +232,11 @@
                             <label>{{ __('tour_details_trans.morning') }} ({{ __('tour_details_trans.language_de') }})</label>
                             <textarea name="agenda_morning_de" class="form-control @error('agenda_morning_de') is-invalid @enderror" rows="3">{{ old('agenda_morning_de') }}</textarea>
                             @error('agenda_morning_de')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
                         </div>
                     </div>
-                </div>
+        </div>
 
                 <!-- Noon -->
                 <div class="row mb-4">
@@ -297,11 +297,11 @@
                             <label>{{ __('tour_details_trans.noon') }} ({{ __('tour_details_trans.language_de') }})</label>
                             <textarea name="agenda_noon_de" class="form-control @error('agenda_noon_de') is-invalid @enderror" rows="3">{{ old('agenda_noon_de') }}</textarea>
                             @error('agenda_noon_de')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
                         </div>
                     </div>
-                </div>
+        </div>
 
                 <!-- Evening -->
                 <div class="row mb-4">
@@ -362,10 +362,10 @@
                             <label>{{ __('tour_details_trans.evening') }} ({{ __('tour_details_trans.language_de') }})</label>
                             <textarea name="agenda_evening_de" class="form-control @error('agenda_evening_de') is-invalid @enderror" rows="3">{{ old('agenda_evening_de') }}</textarea>
                             @error('agenda_evening_de')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+        </div>
                 </div>
             </div>
         </div>
