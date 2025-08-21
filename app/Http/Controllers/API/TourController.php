@@ -47,28 +47,37 @@ public function tourDetailsBySubTourId($sub_tour_id, Request $request)
     }
 
     $response = $details->map(function ($detail) use ($locale) {
-        $infos = $detail->info->map(function ($info) {
-            // تأكد من تحويل الـ agenda إلى Array
-            $agenda = is_array($info->agenda) ? $info->agenda : json_decode($info->agenda, true) ?? [];
+        $infos = $detail->info->map(function ($info) use ($locale) {
+            // الحصول على البيانات متعددة اللغات
+            $fromMonth = is_array($info->from_month) 
+                ? ($info->from_month[$locale] ?? $info->from_month['en'] ?? '')
+                : $info->from_month;
+            
+            $toMonth = is_array($info->to_month) 
+                ? ($info->to_month[$locale] ?? $info->to_month['en'] ?? '')
+                : $info->to_month;
 
+            // الحصول على agenda متعددة اللغات
+            $agenda = $info->agenda;
+            
             return [
-                'from_month' => $info->from_month,
-                'to_month'   => $info->to_month,
+                'from_month' => $fromMonth,
+                'to_month'   => $toMonth,
                 'price'      => $info->price,
                 'agenda'     => [
                     'morning' => [
                         'text'   => is_array($agenda['morning'] ?? null)
-                            ? ($agenda['morning']['text'] ?? '')
+                            ? ($agenda['morning'][$locale] ?? $agenda['morning']['en'] ?? '')
                             : ($agenda['morning'] ?? ''),
                     ],
                     'noon' => [
                         'text'   => is_array($agenda['noon'] ?? null)
-                            ? ($agenda['noon']['text'] ?? '')
+                            ? ($agenda['noon'][$locale] ?? $agenda['noon']['en'] ?? '')
                             : ($agenda['noon'] ?? ''),
                     ],
                     'evening' => [
                         'text'   => is_array($agenda['evening'] ?? null)
-                            ? ($agenda['evening']['text'] ?? '')
+                            ? ($agenda['evening'][$locale] ?? $agenda['evening']['en'] ?? '')
                             : ($agenda['evening'] ?? ''),
                     ],
                 ],
@@ -91,10 +100,6 @@ public function tourDetailsBySubTourId($sub_tour_id, Request $request)
 
     return response()->json($response);
 }
-
-
-
-
 
   
 }

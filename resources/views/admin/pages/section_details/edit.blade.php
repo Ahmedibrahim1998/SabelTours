@@ -28,7 +28,7 @@
             <div class="form-group col-md-6">
                 <label>{{ __('section_details_trans.content_' . $locale) }}</label>
                 <textarea name="content_{{ $locale }}" class="form-control"
-                          rows="4">{{ old('content_'.$locale, $sectionDetail->getLocalizedContent('content_', $locale)) }}</textarea>
+                          rows="4">{{ old('content_'.$locale, $sectionDetail->getLocalizedContent($locale)) }}</textarea>
                 @error('content_'.$locale) <small class="text-danger">{{ $message }}</small> @enderror
             </div>
         @endforeach
