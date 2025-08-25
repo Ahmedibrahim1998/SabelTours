@@ -51,6 +51,15 @@ class TourDetailController extends Controller
                 'de' => $request->input('description_de'),
             ];
 
+            $location = [
+                'ar' => $request->input('location_ar'),
+                'en' => $request->input('location_en'),
+                'fr' => $request->input('location_fr'),
+                'es' => $request->input('location_es'),
+                'it' => $request->input('location_it'),
+                'de' => $request->input('location_de'),
+            ];
+
             $file = $request->file('image');
             $originalName = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
@@ -65,7 +74,7 @@ class TourDetailController extends Controller
                 'image' => $imagePath,
                 'title' => $title,
                 'description' => $description,
-                'location' => $request->location,
+                'location' => $location,
             ]);
 
             return redirect()->route('tour_details.index')->with('success', __('messages.success'));
@@ -106,7 +115,12 @@ class TourDetailController extends Controller
             'tour_id' => 'required|exists:tours,id',
             'sub_tour_id' => 'nullable|exists:sub_tours,id',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'location' => 'nullable|string',
+            'location_ar' => 'nullable|string',
+            'location_en' => 'nullable|string',
+            'location_fr' => 'nullable|string',
+            'location_es' => 'nullable|string',
+            'location_it' => 'nullable|string',
+            'location_de' => 'nullable|string',
             'title_ar' => 'required|string',
             'title_en' => 'required|string',
             'description_ar' => 'required|string',
@@ -132,6 +146,15 @@ class TourDetailController extends Controller
                 'de' => $request->input('description_de'),
             ];
 
+            $location = [
+                'ar' => $request->input('location_ar'),
+                'en' => $request->input('location_en'),
+                'fr' => $request->input('location_fr'),
+                'es' => $request->input('location_es'),
+                'it' => $request->input('location_it'),
+                'de' => $request->input('location_de'),
+            ];
+
 
             if ($request->hasFile('image')) {
                 // حذف الصورة القديمة إن وُجدت وكانت محلية (وليست رابط خارجي)
@@ -155,7 +178,7 @@ class TourDetailController extends Controller
                 'sub_tour_id' => $request->sub_tour_id,
                 'title' => $title,
                 'description' => $description,
-                'location' => $request->location,
+                'location' => $location,
             ]);
 
             return redirect()->route('tour_details.index')->with('success', __('messages.Update'));

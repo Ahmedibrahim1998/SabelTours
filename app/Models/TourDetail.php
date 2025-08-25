@@ -16,6 +16,7 @@ class TourDetail extends Model
     protected $casts = [
         'description' => 'array',
         'title' => 'array',
+        'location' => 'array',
     ];
 
     public function tour()
@@ -41,6 +42,14 @@ class TourDetail extends Model
     public function getLocalizedDescription($locale)
     {
         return $this->description[$locale] ?? $this->description['en'] ?? '';
+    }
+    
+    public function getLocalizedLocation($locale)
+    {
+        if (is_array($this->location)) {
+            return $this->location[$locale] ?? $this->location['en'] ?? '';
+        }
+        return $this->location ?? '';
     }
     public function subTour()
     {

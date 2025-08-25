@@ -70,9 +70,14 @@
 
         <br>
 
-        <div class="form-group">
-            <label>{{ __('tour_details_trans.location') }}</label>
-            <input type="text" name="location" class="form-control" value="{{ $tourDetail->location }}">
+        <div class="row">
+            @foreach(['ar','en','fr','es','it','de'] as $locale)
+                <div class="col-md-6">
+                    <label>{{ __('tour_details_trans.location_' . $locale) }}</label>
+                    <input type="text" name="location_{{ $locale }}" class="form-control" value="{{ is_array($tourDetail->location) ? ($tourDetail->location[$locale] ?? '') : ($locale === app()->getLocale() ? $tourDetail->location : '') }}">
+                    @error('location_' . $locale)<div class="text-danger">{{ $message }}</div>@enderror
+                </div>
+            @endforeach
         </div>
 
         <button type="submit" class="btn btn-primary">{{ __('tour_details_trans.update') }}</button>

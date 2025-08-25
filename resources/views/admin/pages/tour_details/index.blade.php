@@ -28,7 +28,7 @@
                 <td>{{ $detail->tour->getLocalizedName(app()->getLocale()) }}</td>
                 <td>{{ optional($detail->subTour)->getLocalizedName(app()->getLocale()) ?? '-' }}</td>
                 <td>{{ $detail->getLocalizedTitle(app()->getLocale()) }}</td>
-                <td>{{ $detail->location ?? '-' }}</td>
+                <td>{{ is_array($detail->location) ? ($detail->location[app()->getLocale()] ?? ($detail->location['en'] ?? '-')) : ($detail->location ?? '-') }}</td>
                 @php
                     $imageSrc = Illuminate\Support\Str::startsWith($detail->image, ['http://', 'https://'])
                         ? $detail->image

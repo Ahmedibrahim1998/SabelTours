@@ -64,13 +64,14 @@
             @endforeach
         </div>
 
-        <div class="form-group mt-3">
-            <label>{{ __('tour_details_trans.location') }}</label>
-            <input type="text" name="location" value="{{ old('location') }}"
-                   class="form-control @error('location') is-invalid @enderror">
-            @error('location')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+        <div class="row mt-3">
+            @foreach(['ar','en','fr','es','it','de'] as $locale)
+                <div class="col-md-6">
+                    <label>{{ __('tour_details_trans.location_' . $locale) }}</label>
+                    <input type="text" name="location_{{ $locale }}" value="{{ old('location_' . $locale) }}" class="form-control">
+                    @error('location_' . $locale)<div class="text-danger">{{ $message }}</div>@enderror
+                </div>
+            @endforeach
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">{{ __('tour_details_trans.submit') }}</button>

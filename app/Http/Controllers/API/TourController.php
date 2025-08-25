@@ -88,7 +88,7 @@ public function tourDetailsBySubTourId($sub_tour_id, Request $request)
             'id'          => $detail->id,
             'title'       => $detail->title[$locale] ?? '',
             'description' => $detail->description[$locale] ?? '',
-            'location'    => $detail->location,
+            'location'    => is_array($detail->location) ? ($detail->location[$locale] ?? ($detail->location['en'] ?? '')) : ($detail->location ?? ''),
             'image'       => $detail->image,
             'sub_tour'    => $detail->subTour?->name[$locale] ?? '',
             'tour'        => $detail->tour?->name[$locale] ?? '',

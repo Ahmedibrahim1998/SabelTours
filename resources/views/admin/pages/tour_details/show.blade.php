@@ -60,7 +60,17 @@
             @if($tourDetail->location)
                 <div class="mb-4">
                     <h6 class="text-muted">{{ __('tour_details_trans.location') }}</h6>
-                    <p>{{ $tourDetail->location }}</p>
+                    @if(is_array($tourDetail->location))
+                        <ul class="list-group">
+                            @foreach($tourDetail->location as $lang => $value)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <strong>{{ strtoupper($lang) }}:</strong> {{ $value }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>{{ $tourDetail->location }}</p>
+                    @endif
                 </div>
             @endif
         </div>
